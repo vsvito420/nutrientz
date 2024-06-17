@@ -1,0 +1,57 @@
+digraph ESP32_Connections {
+    rankdir=LR;
+    node [shape=box, style=filled, color=lightgrey];
+
+    ESP32 [label="ESP32\n(Mikrocontroller)", shape=ellipse, color=lightblue];
+
+    OLED [label="OLED Display\n(SDA: GPIO 21\nSCL: GPIO 22)", color=lightgreen];
+    Relay1 [label="Relais 1\n(GPIO 12)", color=yellow];
+    Relay2 [label="Relais 2\n(GPIO 13)", color=yellow];
+    Relay3 [label="Relais 3\n(GPIO 14)", color=yellow];
+    Relay4 [label="Relais 4\n(GPIO 15)", color=yellow];
+    Relay5 [label="Relais 5\n(GPIO 27)", color=yellow];
+    Relay6 [label="Relais 6\n(GPIO 26)", color=yellow];
+    Relay7 [label="Relais 7\n(GPIO 25)", color=yellow];
+    Relay8 [label="Relais 8\n(GPIO 33)", color=yellow];
+    Encoder [label="Rotary Encoder\n(A: GPIO 18\nB: GPIO 19\nSW: GPIO 34)", color=orange];
+
+    ESP32 -> OLED [label="SDA\n(GPIO 21)"];
+    ESP32 -> OLED [label="SCL\n(GPIO 22)"];
+
+    ESP32 -> Relay1 [label="GPIO 12"];
+    ESP32 -> Relay2 [label="GPIO 13"];
+    ESP32 -> Relay3 [label="GPIO 14"];
+    ESP32 -> Relay4 [label="GPIO 15"];
+    ESP32 -> Relay5 [label="GPIO 27"];
+    ESP32 -> Relay6 [label="GPIO 26"];
+    ESP32 -> Relay7 [label="GPIO 25"];
+    ESP32 -> Relay8 [label="GPIO 33"];
+
+    ESP32 -> Encoder [label="A\n(GPIO 18)"];
+    ESP32 -> Encoder [label="B\n(GPIO 19)"];
+    ESP32 -> Encoder [label="SW\n(GPIO 34)"];
+
+    ESP32 -> Power [label="3.3V", dir=none];
+    OLED -> Power [label="3.3V", dir=none];
+    Relay1 -> Power [label="5V", dir=none];
+    Relay2 -> Power [label="5V", dir=none];
+    Relay3 -> Power [label="5V", dir=none];
+    Relay4 -> Power [label="5V", dir=none];
+    Relay5 -> Power [label="5V", dir=none];
+    Relay6 -> Power [label="5V", dir=none];
+    Relay7 -> Power [label="5V", dir=none];
+    Relay8 -> Power [label="5V", dir=none];
+    Encoder -> Power [label="3.3V", dir=none];
+
+    ESP32 -> GND [label="GND", dir=none];
+    OLED -> GND [label="GND", dir=none];
+    Relay1 -> GND [label="GND", dir=none];
+    Relay2 -> GND [label="GND", dir=none];
+    Relay3 -> GND [label="GND", dir=none];
+    Relay4 -> GND [label="GND", dir=none];
+    Relay5 -> GND [label="GND", dir=none];
+    Relay6 -> GND [label="GND", dir=none];
+    Relay7 -> GND [label="GND", dir=none];
+    Relay8 -> GND [label="GND", dir=none];
+    Encoder -> GND [label="GND", dir=none];
+}
